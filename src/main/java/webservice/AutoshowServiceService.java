@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "AutoshowServiceService", targetNamespace = "http://webservice/", wsdlLocation = "http://localhost:8894/ws/autoshow?wsdl")
+@WebServiceClient(name = "AutoshowServiceService", targetNamespace = "http://webservice/", wsdlLocation = "http://localhost:8895/ws/autoshow?wsdl")
 public class AutoshowServiceService
     extends Service
 {
@@ -30,7 +30,7 @@ public class AutoshowServiceService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8894/ws/autoshow?wsdl");
+            url = new URL("http://localhost:8895/ws/autoshow?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -65,11 +65,11 @@ public class AutoshowServiceService
     /**
      * 
      * @return
-     *     returns AutoshowService
+     *     returns ShowService
      */
     @WebEndpoint(name = "AutoshowServicePort")
-    public AutoshowService getAutoshowServicePort() {
-        return super.getPort(new QName("http://webservice/", "AutoshowServicePort"), AutoshowService.class);
+    public ShowService getAutoshowServicePort() {
+        return super.getPort(new QName("http://webservice/", "AutoshowServicePort"), ShowService.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class AutoshowServiceService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns AutoshowService
+     *     returns ShowService
      */
     @WebEndpoint(name = "AutoshowServicePort")
-    public AutoshowService getAutoshowServicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://webservice/", "AutoshowServicePort"), AutoshowService.class, features);
+    public ShowService getAutoshowServicePort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://webservice/", "AutoshowServicePort"), ShowService.class, features);
     }
 
     private static URL __getWsdlLocation() {
