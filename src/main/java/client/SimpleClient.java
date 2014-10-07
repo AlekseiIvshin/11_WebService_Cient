@@ -18,7 +18,7 @@ import webservice.ShowService;
 public class SimpleClient {
 	static final Logger logger = LoggerFactory.getLogger(SimpleClient.class);
 
-	@WebServiceRef(wsdlLocation = "http://localhost:8888/ws/autoshow?wsdl")
+	@WebServiceRef(wsdlLocation = "http://localhost:8897/ws/autoshow?wsdl")
 	AutoshowServiceService service;
 	ShowService servicePort;
 
@@ -59,5 +59,13 @@ public class SimpleClient {
 	
 	public MerchantDomain getMerchantById(int id){
 		return servicePort.getMerchantById(id);
+	}
+	
+	public CarDomain findCar(String markName, String modelName, String modificationName) throws Exception{
+		try {
+			return servicePort.findOneCar(markName, modelName, modificationName);
+		} catch (Exception_Exception e) {
+			throw new Exception(e);
+		}
 	}
 }

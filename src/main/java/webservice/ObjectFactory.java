@@ -27,8 +27,8 @@ public class ObjectFactory {
     private final static QName _GetCarByMarkAndModelResponse_QNAME = new QName("http://webservice/", "getCarByMarkAndModelResponse");
     private final static QName _NewSaleAndUpdateStore_QNAME = new QName("http://webservice/", "newSaleAndUpdateStore");
     private final static QName _GetCarByMarkResponse_QNAME = new QName("http://webservice/", "getCarByMarkResponse");
-    private final static QName _Exception_QNAME = new QName("http://webservice/", "Exception");
     private final static QName _GetCarById_QNAME = new QName("http://webservice/", "getCarById");
+    private final static QName _Exception_QNAME = new QName("http://webservice/", "Exception");
     private final static QName _GetCarMarkList_QNAME = new QName("http://webservice/", "getCarMarkList");
     private final static QName _RemoveCar_QNAME = new QName("http://webservice/", "removeCar");
     private final static QName _GetStore_QNAME = new QName("http://webservice/", "getStore");
@@ -46,8 +46,8 @@ public class ObjectFactory {
     private final static QName _FindOneCar_QNAME = new QName("http://webservice/", "findOneCar");
     private final static QName _NewSaleAndUpdateStoreResponse_QNAME = new QName("http://webservice/", "newSaleAndUpdateStoreResponse");
     private final static QName _GetMerchantByIdResponse_QNAME = new QName("http://webservice/", "getMerchantByIdResponse");
-    private final static QName _RemoveCarResponse_QNAME = new QName("http://webservice/", "removeCarResponse");
     private final static QName _GetCarByMarkAndModel_QNAME = new QName("http://webservice/", "getCarByMarkAndModel");
+    private final static QName _RemoveCarResponse_QNAME = new QName("http://webservice/", "removeCarResponse");
     private final static QName _AddCar_QNAME = new QName("http://webservice/", "addCar");
 
     /**
@@ -58,19 +58,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCarById }
-     * 
-     */
-    public GetCarById createGetCarById() {
-        return new GetCarById();
-    }
-
-    /**
      * Create an instance of {@link Exception }
      * 
      */
     public Exception createException() {
         return new Exception();
+    }
+
+    /**
+     * Create an instance of {@link GetCarById }
+     * 
+     */
+    public GetCarById createGetCarById() {
+        return new GetCarById();
     }
 
     /**
@@ -218,19 +218,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RemoveCarResponse }
-     * 
-     */
-    public RemoveCarResponse createRemoveCarResponse() {
-        return new RemoveCarResponse();
-    }
-
-    /**
      * Create an instance of {@link GetCarByMarkAndModel }
      * 
      */
     public GetCarByMarkAndModel createGetCarByMarkAndModel() {
         return new GetCarByMarkAndModel();
+    }
+
+    /**
+     * Create an instance of {@link RemoveCarResponse }
+     * 
+     */
+    public RemoveCarResponse createRemoveCarResponse() {
+        return new RemoveCarResponse();
     }
 
     /**
@@ -325,21 +325,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservice/", name = "Exception")
-    public JAXBElement<Exception> createException(Exception value) {
-        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetCarById }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "getCarById")
     public JAXBElement<GetCarById> createGetCarById(GetCarById value) {
         return new JAXBElement<GetCarById>(_GetCarById_QNAME, GetCarById.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "Exception")
+    public JAXBElement<Exception> createException(Exception value) {
+        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
     }
 
     /**
@@ -496,21 +496,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveCarResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservice/", name = "removeCarResponse")
-    public JAXBElement<RemoveCarResponse> createRemoveCarResponse(RemoveCarResponse value) {
-        return new JAXBElement<RemoveCarResponse>(_RemoveCarResponse_QNAME, RemoveCarResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetCarByMarkAndModel }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "getCarByMarkAndModel")
     public JAXBElement<GetCarByMarkAndModel> createGetCarByMarkAndModel(GetCarByMarkAndModel value) {
         return new JAXBElement<GetCarByMarkAndModel>(_GetCarByMarkAndModel_QNAME, GetCarByMarkAndModel.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveCarResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "removeCarResponse")
+    public JAXBElement<RemoveCarResponse> createRemoveCarResponse(RemoveCarResponse value) {
+        return new JAXBElement<RemoveCarResponse>(_RemoveCarResponse_QNAME, RemoveCarResponse.class, null, value);
     }
 
     /**
