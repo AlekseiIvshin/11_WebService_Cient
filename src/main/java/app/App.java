@@ -1,5 +1,6 @@
 package app;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.slf4j.Logger;
@@ -7,44 +8,40 @@ import org.slf4j.LoggerFactory;
 
 import client.Client;
 import client.SimpleClient;
-import client.reports.ReportFacade;
-import client.reports.Reports;
-import client.reports.SalesReport;
-import client.reports.StoreReport;
+import reports.ReportFacade;
+import reports.Reports;
+import reports.views.ReportView;
+import reports.views.SalesTableReport;
+import reports.views.StoreTableReport;
 
 public class App {
 
 	static final Logger logger = LoggerFactory.getLogger(Reports.class);
-	
+
 	Client client = new SimpleClient();
-	ReportFacade reportFacade = new Reports();
-	
-	public void createReports() throws Exception{
-		createSaleReport();
-		createStoreReport();
+	ReportFacade reportFacade = new Reports(new File("bin//htmlreports"));
+
+	public void createReports() throws Exception {
+		setSaleReport();
+		setStoreReport();
+		try {
+			reportFacade.createReport();
+		} catch (IOException e) {
+			logger.error("Create report error", e);
+			throw new Exception(e);
+		}
 	}
-	
-	private void createSaleReport() throws Exception{
-		SalesReport saleReport = new SalesReport(client.getAllSales());
-		
+
+	private void setSaleReport() throws Exception {
+		ReportView saleReport = new SalesTableReport(client.getAllSales());
+
 		reportFacade.addReport("AllSales", saleReport);
-		try {
-			reportFacade.createReport();
-		} catch (IOException e) {
-			logger.error("Create report error",e);
-			throw new Exception(e);
-		}
+
 	}
-	
-	private void createStoreReport() throws Exception{
-		StoreReport storeReport = new StoreReport(client.getAllStores());
-		
+
+	private void setStoreReport() throws Exception {
+		ReportView storeReport = new StoreTableReport(client.getAllStores());
+
 		reportFacade.addReport("AllStores", storeReport);
-		try {
-			reportFacade.createReport();
-		} catch (IOException e) {
-			logger.error("Create report error",e);
-			throw new Exception(e);
-		}
 	}
 }

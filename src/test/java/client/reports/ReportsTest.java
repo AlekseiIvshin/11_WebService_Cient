@@ -2,6 +2,7 @@ package client.reports;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -15,6 +16,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.junit.Test;
 import org.mockito.Mock;
+
+import reports.Reports;
+import reports.views.SalesTableReport;
 
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
 
@@ -53,9 +57,9 @@ public class ReportsTest {
 		cal.setTime(new Date());
 		
 		when(salesMock.getSaleDate()).thenReturn(XMLGregorianCalendarImpl.createDate(1900, 1, 1, 1));
-		Reports reports = new Reports();
+		Reports reports = new Reports(new File("reports"));
 		List<SalesElement> sales  = Arrays.asList(salesMock, salesMock, salesMock );
-		reports.addReport("sale", new SalesReport(sales));
+		reports.addReport("sale", new SalesTableReport(sales));
 		try {
 			reports.createReport();
 		} catch (IOException e) {

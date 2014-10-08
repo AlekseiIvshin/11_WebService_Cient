@@ -13,11 +13,6 @@
     </encoder>		
 	</appender>
 	
-   
-  <logger name="org.apache.cxf" level="error">
-	<appender-ref ref="FILE" />
-	<appender-ref ref="STDOUT" />
-  </logger>
  
   <root level="debug">
     <appender-ref ref="STDOUT" />

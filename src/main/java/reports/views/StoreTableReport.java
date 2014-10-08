@@ -1,4 +1,6 @@
-package client.reports;
+package reports.views;
+
+import static org.rendersnake.HtmlAttributesFactory.charset;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -6,16 +8,15 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import org.rendersnake.HtmlCanvas;
-import org.rendersnake.Renderable;
+import org.rendersnake.internal.CharactersWriteable;
 
-import static org.rendersnake.HtmlAttributesFactory.*;
 import webservice.StoreElement;
 
-public class StoreReport implements Renderable {
+public class StoreTableReport implements ReportView {
 
 	private List<StoreElement> stores;
 
-	public StoreReport(List<StoreElement> stores) {
+	public StoreTableReport(List<StoreElement> stores) {
 		this.stores = stores;
 	}
 

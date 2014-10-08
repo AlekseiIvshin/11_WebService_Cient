@@ -1,4 +1,6 @@
-package client.reports;
+package reports.views;
+
+import static org.rendersnake.HtmlAttributesFactory.charset;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -7,17 +9,16 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.xml.bind.DatatypeConverter;
+
 import org.rendersnake.HtmlCanvas;
-import org.rendersnake.Renderable;
-import static org.rendersnake.HtmlAttributesFactory.*;
 
 import webservice.SalesElement;
 
-public class SalesReport implements Renderable {
+public class SalesTableReport implements ReportView {
 
 	private List<SalesElement> sales;
 
-	public SalesReport(List<SalesElement> sales) {
+	public SalesTableReport(List<SalesElement> sales) {
 		this.sales = sales;
 	}
 
