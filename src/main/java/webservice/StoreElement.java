@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for storeDomain complex type.
+ * <p>Java class for storeElement complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="storeDomain">
+ * &lt;complexType name="storeElement">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="car" type="{http://webservice/}carDomain" minOccurs="0"/>
+ *         &lt;element name="car" type="{http://webservice/}carElement" minOccurs="0"/>
  *         &lt;element name="enableTestDrive" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}float"/>
@@ -30,16 +30,16 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "storeDomain", propOrder = {
+@XmlType(name = "storeElement", propOrder = {
     "car",
     "enableTestDrive",
     "id",
     "price",
     "quantity"
 })
-public class StoreDomain {
+public class StoreElement {
 
-    protected CarDomain car;
+    protected CarElement car;
     protected boolean enableTestDrive;
     protected int id;
     protected float price;
@@ -50,10 +50,10 @@ public class StoreDomain {
      * 
      * @return
      *     possible object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public CarDomain getCar() {
+    public CarElement getCar() {
         return car;
     }
 
@@ -62,10 +62,10 @@ public class StoreDomain {
      * 
      * @param value
      *     allowed object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public void setCar(CarDomain value) {
+    public void setCar(CarElement value) {
         this.car = value;
     }
 

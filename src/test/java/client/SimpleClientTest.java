@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import webservice.CustomerDomain;
+import webservice.CustomerElement;
 
 public class SimpleClientTest {
 
@@ -26,7 +26,7 @@ public class SimpleClientTest {
 	
 	@Test
 	public void testGetCustomer() {
-		CustomerDomain customer = client.findCustomerByPassport("9100", "100101");
+		CustomerElement customer = client.findCustomerByPassport("9100", "100101");
 		assertNotNull(customer);
 	}
 

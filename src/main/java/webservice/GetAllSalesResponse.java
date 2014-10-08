@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getCarByMarkAndModelResponse complex type.
+ * <p>Java class for getAllSalesResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getCarByMarkAndModelResponse">
+ * &lt;complexType name="getAllSalesResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservice/}carDomain" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservice/}salesElement" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getCarByMarkAndModelResponse", propOrder = {
+@XmlType(name = "getAllSalesResponse", propOrder = {
     "_return"
 })
-public class GetCarByMarkAndModelResponse {
+public class GetAllSalesResponse {
 
     @XmlElement(name = "return")
-    protected List<CarDomain> _return;
+    protected List<SalesElement> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetCarByMarkAndModelResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CarDomain }
+     * {@link SalesElement }
      * 
      * 
      */
-    public List<CarDomain> getReturn() {
+    public List<SalesElement> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<CarDomain>();
+            _return = new ArrayList<SalesElement>();
         }
         return this._return;
     }
