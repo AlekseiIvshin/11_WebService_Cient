@@ -123,4 +123,8 @@ public class SimpleClient {
 	public StoreDomain getStoreByCar(CarDomain car){
 		return servicePort.getStore(car);
 	}
+	
+	public CustomerDomain findCustomerByPassport(String series, String number){
+		return servicePort.findCustomerByPassport(series, number);
+	}
 }

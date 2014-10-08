@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "AutoshowServiceService", targetNamespace = "http://webservice/", wsdlLocation = "http://localhost:8897/ws/autoshow?wsdl")
+@WebServiceClient(name = "AutoshowServiceService", targetNamespace = "http://webservice/", wsdlLocation = "http://localhost:8889/ws/autoshow?wsdl")
 public class AutoshowServiceService
     extends Service
 {
@@ -30,7 +30,7 @@ public class AutoshowServiceService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8897/ws/autoshow?wsdl");
+            url = new URL("http://localhost:8889/ws/autoshow?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
