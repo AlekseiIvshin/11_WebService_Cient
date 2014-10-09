@@ -27,19 +27,19 @@ public class ObjectFactory {
     private final static QName _GetCarByMarkAndModelResponse_QNAME = new QName("http://webservice/", "getCarByMarkAndModelResponse");
     private final static QName _NewSaleAndUpdateStore_QNAME = new QName("http://webservice/", "newSaleAndUpdateStore");
     private final static QName _GetCarByMarkResponse_QNAME = new QName("http://webservice/", "getCarByMarkResponse");
-    private final static QName _Exception_QNAME = new QName("http://webservice/", "Exception");
     private final static QName _GetCarById_QNAME = new QName("http://webservice/", "getCarById");
+    private final static QName _Exception_QNAME = new QName("http://webservice/", "Exception");
     private final static QName _GetCarMarkList_QNAME = new QName("http://webservice/", "getCarMarkList");
-    private final static QName _RemoveCar_QNAME = new QName("http://webservice/", "removeCar");
     private final static QName _GetStore_QNAME = new QName("http://webservice/", "getStore");
+    private final static QName _RemoveCar_QNAME = new QName("http://webservice/", "removeCar");
     private final static QName _GetAllMerchants_QNAME = new QName("http://webservice/", "getAllMerchants");
     private final static QName _FindOneCarResponse_QNAME = new QName("http://webservice/", "findOneCarResponse");
     private final static QName _GetMerchantById_QNAME = new QName("http://webservice/", "getMerchantById");
     private final static QName _GetStoreResponse_QNAME = new QName("http://webservice/", "getStoreResponse");
     private final static QName _GetCarByIdResponse_QNAME = new QName("http://webservice/", "getCarByIdResponse");
     private final static QName _GetAllMerchantsResponse_QNAME = new QName("http://webservice/", "getAllMerchantsResponse");
-    private final static QName _GetCarByMark_QNAME = new QName("http://webservice/", "getCarByMark");
     private final static QName _FindCustomerByPassport_QNAME = new QName("http://webservice/", "findCustomerByPassport");
+    private final static QName _GetCarByMark_QNAME = new QName("http://webservice/", "getCarByMark");
     private final static QName _AddCarResponse_QNAME = new QName("http://webservice/", "addCarResponse");
     private final static QName _GetCarMarkListResponse_QNAME = new QName("http://webservice/", "getCarMarkListResponse");
     private final static QName _FindCustomerByPassportResponse_QNAME = new QName("http://webservice/", "findCustomerByPassportResponse");
@@ -48,7 +48,11 @@ public class ObjectFactory {
     private final static QName _GetMerchantByIdResponse_QNAME = new QName("http://webservice/", "getMerchantByIdResponse");
     private final static QName _RemoveCarResponse_QNAME = new QName("http://webservice/", "removeCarResponse");
     private final static QName _GetCarByMarkAndModel_QNAME = new QName("http://webservice/", "getCarByMarkAndModel");
+    private final static QName _GetAllStoresResponse_QNAME = new QName("http://webservice/", "getAllStoresResponse");
     private final static QName _AddCar_QNAME = new QName("http://webservice/", "addCar");
+    private final static QName _GetAllStores_QNAME = new QName("http://webservice/", "getAllStores");
+    private final static QName _GetAllSalesResponse_QNAME = new QName("http://webservice/", "getAllSalesResponse");
+    private final static QName _GetAllSales_QNAME = new QName("http://webservice/", "getAllSales");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice
@@ -58,19 +62,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCarById }
-     * 
-     */
-    public GetCarById createGetCarById() {
-        return new GetCarById();
-    }
-
-    /**
      * Create an instance of {@link Exception }
      * 
      */
     public Exception createException() {
         return new Exception();
+    }
+
+    /**
+     * Create an instance of {@link GetCarById }
+     * 
+     */
+    public GetCarById createGetCarById() {
+        return new GetCarById();
     }
 
     /**
@@ -106,19 +110,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetStore }
-     * 
-     */
-    public GetStore createGetStore() {
-        return new GetStore();
-    }
-
-    /**
      * Create an instance of {@link RemoveCar }
      * 
      */
     public RemoveCar createRemoveCar() {
         return new RemoveCar();
+    }
+
+    /**
+     * Create an instance of {@link GetStore }
+     * 
+     */
+    public GetStore createGetStore() {
+        return new GetStore();
     }
 
     /**
@@ -186,19 +190,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCarByMark }
-     * 
-     */
-    public GetCarByMark createGetCarByMark() {
-        return new GetCarByMark();
-    }
-
-    /**
      * Create an instance of {@link FindCustomerByPassport }
      * 
      */
     public FindCustomerByPassport createFindCustomerByPassport() {
         return new FindCustomerByPassport();
+    }
+
+    /**
+     * Create an instance of {@link GetCarByMark }
+     * 
+     */
+    public GetCarByMark createGetCarByMark() {
+        return new GetCarByMark();
     }
 
     /**
@@ -215,6 +219,14 @@ public class ObjectFactory {
      */
     public GetMerchantByIdResponse createGetMerchantByIdResponse() {
         return new GetMerchantByIdResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAllStoresResponse }
+     * 
+     */
+    public GetAllStoresResponse createGetAllStoresResponse() {
+        return new GetAllStoresResponse();
     }
 
     /**
@@ -250,6 +262,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAllSales }
+     * 
+     */
+    public GetAllSales createGetAllSales() {
+        return new GetAllSales();
+    }
+
+    /**
+     * Create an instance of {@link GetAllSalesResponse }
+     * 
+     */
+    public GetAllSalesResponse createGetAllSalesResponse() {
+        return new GetAllSalesResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAllStores }
+     * 
+     */
+    public GetAllStores createGetAllStores() {
+        return new GetAllStores();
+    }
+
+    /**
      * Create an instance of {@link AddCar }
      * 
      */
@@ -258,43 +294,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CustomerDomain }
+     * Create an instance of {@link CustomerElement }
      * 
      */
-    public CustomerDomain createCustomerDomain() {
-        return new CustomerDomain();
+    public CustomerElement createCustomerElement() {
+        return new CustomerElement();
     }
 
     /**
-     * Create an instance of {@link CarDomain }
+     * Create an instance of {@link StoreElement }
      * 
      */
-    public CarDomain createCarDomain() {
-        return new CarDomain();
+    public StoreElement createStoreElement() {
+        return new StoreElement();
     }
 
     /**
-     * Create an instance of {@link StoreDomain }
+     * Create an instance of {@link MerchantElement }
      * 
      */
-    public StoreDomain createStoreDomain() {
-        return new StoreDomain();
+    public MerchantElement createMerchantElement() {
+        return new MerchantElement();
     }
 
     /**
-     * Create an instance of {@link MerchantDomain }
+     * Create an instance of {@link SalesElement }
      * 
      */
-    public MerchantDomain createMerchantDomain() {
-        return new MerchantDomain();
+    public SalesElement createSalesElement() {
+        return new SalesElement();
     }
 
     /**
-     * Create an instance of {@link SalesDomain }
+     * Create an instance of {@link CarElement }
      * 
      */
-    public SalesDomain createSalesDomain() {
-        return new SalesDomain();
+    public CarElement createCarElement() {
+        return new CarElement();
     }
 
     /**
@@ -325,21 +361,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservice/", name = "Exception")
-    public JAXBElement<Exception> createException(Exception value) {
-        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetCarById }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "getCarById")
     public JAXBElement<GetCarById> createGetCarById(GetCarById value) {
         return new JAXBElement<GetCarById>(_GetCarById_QNAME, GetCarById.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "Exception")
+    public JAXBElement<Exception> createException(Exception value) {
+        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
     }
 
     /**
@@ -352,21 +388,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveCar }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservice/", name = "removeCar")
-    public JAXBElement<RemoveCar> createRemoveCar(RemoveCar value) {
-        return new JAXBElement<RemoveCar>(_RemoveCar_QNAME, RemoveCar.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetStore }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "getStore")
     public JAXBElement<GetStore> createGetStore(GetStore value) {
         return new JAXBElement<GetStore>(_GetStore_QNAME, GetStore.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveCar }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "removeCar")
+    public JAXBElement<RemoveCar> createRemoveCar(RemoveCar value) {
+        return new JAXBElement<RemoveCar>(_RemoveCar_QNAME, RemoveCar.class, null, value);
     }
 
     /**
@@ -424,21 +460,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCarByMark }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://webservice/", name = "getCarByMark")
-    public JAXBElement<GetCarByMark> createGetCarByMark(GetCarByMark value) {
-        return new JAXBElement<GetCarByMark>(_GetCarByMark_QNAME, GetCarByMark.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link FindCustomerByPassport }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "findCustomerByPassport")
     public JAXBElement<FindCustomerByPassport> createFindCustomerByPassport(FindCustomerByPassport value) {
         return new JAXBElement<FindCustomerByPassport>(_FindCustomerByPassport_QNAME, FindCustomerByPassport.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCarByMark }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "getCarByMark")
+    public JAXBElement<GetCarByMark> createGetCarByMark(GetCarByMark value) {
+        return new JAXBElement<GetCarByMark>(_GetCarByMark_QNAME, GetCarByMark.class, null, value);
     }
 
     /**
@@ -514,12 +550,48 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllStoresResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "getAllStoresResponse")
+    public JAXBElement<GetAllStoresResponse> createGetAllStoresResponse(GetAllStoresResponse value) {
+        return new JAXBElement<GetAllStoresResponse>(_GetAllStoresResponse_QNAME, GetAllStoresResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddCar }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "addCar")
     public JAXBElement<AddCar> createAddCar(AddCar value) {
         return new JAXBElement<AddCar>(_AddCar_QNAME, AddCar.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllStores }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "getAllStores")
+    public JAXBElement<GetAllStores> createGetAllStores(GetAllStores value) {
+        return new JAXBElement<GetAllStores>(_GetAllStores_QNAME, GetAllStores.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllSalesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "getAllSalesResponse")
+    public JAXBElement<GetAllSalesResponse> createGetAllSalesResponse(GetAllSalesResponse value) {
+        return new JAXBElement<GetAllSalesResponse>(_GetAllSalesResponse_QNAME, GetAllSalesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllSales }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "getAllSales")
+    public JAXBElement<GetAllSales> createGetAllSales(GetAllSales value) {
+        return new JAXBElement<GetAllSales>(_GetAllSales_QNAME, GetAllSales.class, null, value);
     }
 
 }

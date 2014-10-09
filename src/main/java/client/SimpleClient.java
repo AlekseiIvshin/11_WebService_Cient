@@ -8,17 +8,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import webservice.AutoshowServiceService;
-import webservice.CarDomain;
-import webservice.CustomerDomain;
+import webservice.CarElement;
+import webservice.CustomerElement;
 import webservice.Exception_Exception;
-import webservice.MerchantDomain;
-import webservice.SalesDomain;
+import webservice.MerchantElement;
+import webservice.SalesElement;
 import webservice.ShowService;
+import webservice.StoreElement;
 
-public class SimpleClient {
+public class SimpleClient implements Client {
 	static final Logger logger = LoggerFactory.getLogger(SimpleClient.class);
 
-	@WebServiceRef(wsdlLocation = "http://localhost:8888/ws/autoshow?wsdl")
+	@WebServiceRef(wsdlLocation = "http://localhost:8897/ws/autoshow?wsdl")
 	AutoshowServiceService service;
 	ShowService servicePort;
 
@@ -31,12 +32,12 @@ public class SimpleClient {
 		return servicePort.getCarMarkList();
 	}
 
-	public List<MerchantDomain> getMerchants() {
+	public List<MerchantElement> getMerchants() {
 		return servicePort.getAllMerchants();
 	}
 
-	public SalesDomain saleCar(CustomerDomain customer,
-			MerchantDomain merchant, CarDomain car) throws Exception {
+	public SalesElement saleCar(CustomerElement customer,
+			MerchantElement merchant, CarElement car) throws Exception {
 		try {
 			return servicePort.newSaleAndUpdateStore(customer, merchant, car);
 		} catch (Exception_Exception e) {
@@ -45,19 +46,45 @@ public class SimpleClient {
 		}
 	}
 
-	public List<CarDomain> getCarsByMark(String markName){
+	public List<CarElement> getCarsByMark(String markName) {
 		return servicePort.getCarByMark(markName);
 	}
-	
-	public List<CarDomain> getCarsByMarkAndModel(String mark, String model){
+
+	public List<CarElement> getCarsByMarkAndModel(String mark, String model) {
 		return servicePort.getCarByMarkAndModel(mark, model);
 	}
-	
-	public CarDomain getCarById(long id){
+
+	public CarElement getCarById(long id) {
 		return servicePort.getCarById(id);
 	}
-	
-	public MerchantDomain getMerchantById(int id){
+
+	public MerchantElement getMerchantById(int id) {
 		return servicePort.getMerchantById(id);
+	}
+
+	public CarElement findCar(String markName, String modelName,
+			String modificationName) throws Exception {
+		try {
+			return servicePort
+					.findOneCar(markName, modelName, modificationName);
+		} catch (Exception_Exception e) {
+			throw new Exception(e);
+		}
+	}
+
+	public StoreElement getStoreByCar(CarElement car) {
+		return servicePort.getStore(car);
+	}
+
+	public CustomerElement findCustomerByPassport(String series, String number) {
+		return servicePort.findCustomerByPassport(series, number);
+	}
+
+	public List<SalesElement> getAllSales() {
+		return servicePort.getAllSales();
+	}
+
+	public List<StoreElement> getAllStores() {
+		return servicePort.getAllStores();
 	}
 }

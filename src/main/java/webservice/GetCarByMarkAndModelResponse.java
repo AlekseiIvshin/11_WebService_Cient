@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservice/}carDomain" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservice/}carElement" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetCarByMarkAndModelResponse {
 
     @XmlElement(name = "return")
-    protected List<CarDomain> _return;
+    protected List<CarElement> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetCarByMarkAndModelResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CarDomain }
+     * {@link CarElement }
      * 
      * 
      */
-    public List<CarDomain> getReturn() {
+    public List<CarElement> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<CarDomain>();
+            _return = new ArrayList<CarElement>();
         }
         return this._return;
     }

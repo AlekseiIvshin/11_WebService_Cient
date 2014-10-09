@@ -7,8 +7,6 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.ws.Action;
-import javax.xml.ws.FaultAction;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
@@ -28,44 +26,56 @@ public interface ShowService {
 
     /**
      * 
-     * @param carId
      * @return
-     *     returns webservice.CarDomain
+     *     returns java.util.List<java.lang.String>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCarById", targetNamespace = "http://webservice/", className = "webservice.GetCarById")
-    @ResponseWrapper(localName = "getCarByIdResponse", targetNamespace = "http://webservice/", className = "webservice.GetCarByIdResponse")
-    @Action(input = "http://webservice/ShowService/getCarByIdRequest", output = "http://webservice/ShowService/getCarByIdResponse")
-    public CarDomain getCarById(
-        @WebParam(name = "carId", targetNamespace = "")
-        long carId);
+    @RequestWrapper(localName = "getCarMarkList", targetNamespace = "http://webservice/", className = "webservice.GetCarMarkList")
+    @ResponseWrapper(localName = "getCarMarkListResponse", targetNamespace = "http://webservice/", className = "webservice.GetCarMarkListResponse")
+    public List<String> getCarMarkList();
 
     /**
      * 
-     * @param modelName
-     * @param modificationName
-     * @param markName
+     * @param merchantId
      * @return
-     *     returns webservice.CarDomain
-     * @throws Exception_Exception
+     *     returns webservice.MerchantElement
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "addCar", targetNamespace = "http://webservice/", className = "webservice.AddCar")
-    @ResponseWrapper(localName = "addCarResponse", targetNamespace = "http://webservice/", className = "webservice.AddCarResponse")
-    @Action(input = "http://webservice/ShowService/addCarRequest", output = "http://webservice/ShowService/addCarResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://webservice/ShowService/addCar/Fault/Exception")
-    })
-    public CarDomain addCar(
-        @WebParam(name = "markName", targetNamespace = "")
-        String markName,
-        @WebParam(name = "modelName", targetNamespace = "")
-        String modelName,
-        @WebParam(name = "modificationName", targetNamespace = "")
-        String modificationName)
-        throws Exception_Exception
-    ;
+    @RequestWrapper(localName = "getMerchantById", targetNamespace = "http://webservice/", className = "webservice.GetMerchantById")
+    @ResponseWrapper(localName = "getMerchantByIdResponse", targetNamespace = "http://webservice/", className = "webservice.GetMerchantByIdResponse")
+    public MerchantElement getMerchantById(
+        @WebParam(name = "merchantId", targetNamespace = "")
+        int merchantId);
+
+    /**
+     * 
+     * @param series
+     * @param number
+     * @return
+     *     returns webservice.CustomerElement
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findCustomerByPassport", targetNamespace = "http://webservice/", className = "webservice.FindCustomerByPassport")
+    @ResponseWrapper(localName = "findCustomerByPassportResponse", targetNamespace = "http://webservice/", className = "webservice.FindCustomerByPassportResponse")
+    public CustomerElement findCustomerByPassport(
+        @WebParam(name = "series", targetNamespace = "")
+        String series,
+        @WebParam(name = "number", targetNamespace = "")
+        String number);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.StoreElement>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAllStores", targetNamespace = "http://webservice/", className = "webservice.GetAllStores")
+    @ResponseWrapper(localName = "getAllStoresResponse", targetNamespace = "http://webservice/", className = "webservice.GetAllStoresResponse")
+    public List<StoreElement> getAllStores();
 
     /**
      * 
@@ -77,9 +87,6 @@ public interface ShowService {
     @WebMethod
     @RequestWrapper(localName = "removeCar", targetNamespace = "http://webservice/", className = "webservice.RemoveCar")
     @ResponseWrapper(localName = "removeCarResponse", targetNamespace = "http://webservice/", className = "webservice.RemoveCarResponse")
-    @Action(input = "http://webservice/ShowService/removeCarRequest", output = "http://webservice/ShowService/removeCarResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://webservice/ShowService/removeCar/Fault/Exception")
-    })
     public void removeCar(
         @WebParam(name = "markName", targetNamespace = "")
         String markName,
@@ -93,126 +100,15 @@ public interface ShowService {
     /**
      * 
      * @param modelName
-     * @param modificationName
      * @param markName
      * @return
-     *     returns webservice.CarDomain
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findOneCar", targetNamespace = "http://webservice/", className = "webservice.FindOneCar")
-    @ResponseWrapper(localName = "findOneCarResponse", targetNamespace = "http://webservice/", className = "webservice.FindOneCarResponse")
-    @Action(input = "http://webservice/ShowService/findOneCarRequest", output = "http://webservice/ShowService/findOneCarResponse")
-    public CarDomain findOneCar(
-        @WebParam(name = "markName", targetNamespace = "")
-        String markName,
-        @WebParam(name = "modelName", targetNamespace = "")
-        String modelName,
-        @WebParam(name = "modificationName", targetNamespace = "")
-        String modificationName);
-
-    /**
-     * 
-     * @param car
-     * @return
-     *     returns webservice.StoreDomain
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getStore", targetNamespace = "http://webservice/", className = "webservice.GetStore")
-    @ResponseWrapper(localName = "getStoreResponse", targetNamespace = "http://webservice/", className = "webservice.GetStoreResponse")
-    @Action(input = "http://webservice/ShowService/getStoreRequest", output = "http://webservice/ShowService/getStoreResponse")
-    public StoreDomain getStore(
-        @WebParam(name = "car", targetNamespace = "")
-        CarDomain car);
-
-    /**
-     * 
-     * @param markName
-     * @return
-     *     returns java.util.List<webservice.CarDomain>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCarByMark", targetNamespace = "http://webservice/", className = "webservice.GetCarByMark")
-    @ResponseWrapper(localName = "getCarByMarkResponse", targetNamespace = "http://webservice/", className = "webservice.GetCarByMarkResponse")
-    @Action(input = "http://webservice/ShowService/getCarByMarkRequest", output = "http://webservice/ShowService/getCarByMarkResponse")
-    public List<CarDomain> getCarByMark(
-        @WebParam(name = "markName", targetNamespace = "")
-        String markName);
-
-    /**
-     * 
-     * @param series
-     * @param number
-     * @return
-     *     returns webservice.CustomerDomain
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findCustomerByPassport", targetNamespace = "http://webservice/", className = "webservice.FindCustomerByPassport")
-    @ResponseWrapper(localName = "findCustomerByPassportResponse", targetNamespace = "http://webservice/", className = "webservice.FindCustomerByPassportResponse")
-    @Action(input = "http://webservice/ShowService/findCustomerByPassportRequest", output = "http://webservice/ShowService/findCustomerByPassportResponse")
-    public CustomerDomain findCustomerByPassport(
-        @WebParam(name = "series", targetNamespace = "")
-        String series,
-        @WebParam(name = "number", targetNamespace = "")
-        String number);
-
-    /**
-     * 
-     * @param car
-     * @param merchant
-     * @param customer
-     * @return
-     *     returns webservice.SalesDomain
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "newSaleAndUpdateStore", targetNamespace = "http://webservice/", className = "webservice.NewSaleAndUpdateStore")
-    @ResponseWrapper(localName = "newSaleAndUpdateStoreResponse", targetNamespace = "http://webservice/", className = "webservice.NewSaleAndUpdateStoreResponse")
-    @Action(input = "http://webservice/ShowService/newSaleAndUpdateStoreRequest", output = "http://webservice/ShowService/newSaleAndUpdateStoreResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://webservice/ShowService/newSaleAndUpdateStore/Fault/Exception")
-    })
-    public SalesDomain newSaleAndUpdateStore(
-        @WebParam(name = "customer", targetNamespace = "")
-        CustomerDomain customer,
-        @WebParam(name = "merchant", targetNamespace = "")
-        MerchantDomain merchant,
-        @WebParam(name = "car", targetNamespace = "")
-        CarDomain car)
-        throws Exception_Exception
-    ;
-
-    /**
-     * 
-     * @param merchantId
-     * @return
-     *     returns webservice.MerchantDomain
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getMerchantById", targetNamespace = "http://webservice/", className = "webservice.GetMerchantById")
-    @ResponseWrapper(localName = "getMerchantByIdResponse", targetNamespace = "http://webservice/", className = "webservice.GetMerchantByIdResponse")
-    @Action(input = "http://webservice/ShowService/getMerchantByIdRequest", output = "http://webservice/ShowService/getMerchantByIdResponse")
-    public MerchantDomain getMerchantById(
-        @WebParam(name = "merchantId", targetNamespace = "")
-        int merchantId);
-
-    /**
-     * 
-     * @param modelName
-     * @param markName
-     * @return
-     *     returns java.util.List<webservice.CarDomain>
+     *     returns java.util.List<webservice.CarElement>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getCarByMarkAndModel", targetNamespace = "http://webservice/", className = "webservice.GetCarByMarkAndModel")
     @ResponseWrapper(localName = "getCarByMarkAndModelResponse", targetNamespace = "http://webservice/", className = "webservice.GetCarByMarkAndModelResponse")
-    @Action(input = "http://webservice/ShowService/getCarByMarkAndModelRequest", output = "http://webservice/ShowService/getCarByMarkAndModelResponse")
-    public List<CarDomain> getCarByMarkAndModel(
+    public List<CarElement> getCarByMarkAndModel(
         @WebParam(name = "markName", targetNamespace = "")
         String markName,
         @WebParam(name = "modelName", targetNamespace = "")
@@ -220,26 +116,135 @@ public interface ShowService {
 
     /**
      * 
+     * @param modelName
+     * @param modificationName
+     * @param markName
      * @return
-     *     returns java.util.List<webservice.MerchantDomain>
+     *     returns webservice.CarElement
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "addCar", targetNamespace = "http://webservice/", className = "webservice.AddCar")
+    @ResponseWrapper(localName = "addCarResponse", targetNamespace = "http://webservice/", className = "webservice.AddCarResponse")
+    public CarElement addCar(
+        @WebParam(name = "markName", targetNamespace = "")
+        String markName,
+        @WebParam(name = "modelName", targetNamespace = "")
+        String modelName,
+        @WebParam(name = "modificationName", targetNamespace = "")
+        String modificationName)
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.MerchantElement>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getAllMerchants", targetNamespace = "http://webservice/", className = "webservice.GetAllMerchants")
     @ResponseWrapper(localName = "getAllMerchantsResponse", targetNamespace = "http://webservice/", className = "webservice.GetAllMerchantsResponse")
-    @Action(input = "http://webservice/ShowService/getAllMerchantsRequest", output = "http://webservice/ShowService/getAllMerchantsResponse")
-    public List<MerchantDomain> getAllMerchants();
+    public List<MerchantElement> getAllMerchants();
+
+    /**
+     * 
+     * @param carId
+     * @return
+     *     returns webservice.CarElement
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCarById", targetNamespace = "http://webservice/", className = "webservice.GetCarById")
+    @ResponseWrapper(localName = "getCarByIdResponse", targetNamespace = "http://webservice/", className = "webservice.GetCarByIdResponse")
+    public CarElement getCarById(
+        @WebParam(name = "carId", targetNamespace = "")
+        long carId);
+
+    /**
+     * 
+     * @param car
+     * @return
+     *     returns webservice.StoreElement
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getStore", targetNamespace = "http://webservice/", className = "webservice.GetStore")
+    @ResponseWrapper(localName = "getStoreResponse", targetNamespace = "http://webservice/", className = "webservice.GetStoreResponse")
+    public StoreElement getStore(
+        @WebParam(name = "car", targetNamespace = "")
+        CarElement car);
+
+    /**
+     * 
+     * @param markName
+     * @return
+     *     returns java.util.List<webservice.CarElement>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCarByMark", targetNamespace = "http://webservice/", className = "webservice.GetCarByMark")
+    @ResponseWrapper(localName = "getCarByMarkResponse", targetNamespace = "http://webservice/", className = "webservice.GetCarByMarkResponse")
+    public List<CarElement> getCarByMark(
+        @WebParam(name = "markName", targetNamespace = "")
+        String markName);
+
+    /**
+     * 
+     * @param modelName
+     * @param modificationName
+     * @param markName
+     * @return
+     *     returns webservice.CarElement
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findOneCar", targetNamespace = "http://webservice/", className = "webservice.FindOneCar")
+    @ResponseWrapper(localName = "findOneCarResponse", targetNamespace = "http://webservice/", className = "webservice.FindOneCarResponse")
+    public CarElement findOneCar(
+        @WebParam(name = "markName", targetNamespace = "")
+        String markName,
+        @WebParam(name = "modelName", targetNamespace = "")
+        String modelName,
+        @WebParam(name = "modificationName", targetNamespace = "")
+        String modificationName)
+        throws Exception_Exception
+    ;
 
     /**
      * 
      * @return
-     *     returns java.util.List<java.lang.String>
+     *     returns java.util.List<webservice.SalesElement>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCarMarkList", targetNamespace = "http://webservice/", className = "webservice.GetCarMarkList")
-    @ResponseWrapper(localName = "getCarMarkListResponse", targetNamespace = "http://webservice/", className = "webservice.GetCarMarkListResponse")
-    @Action(input = "http://webservice/ShowService/getCarMarkListRequest", output = "http://webservice/ShowService/getCarMarkListResponse")
-    public List<String> getCarMarkList();
+    @RequestWrapper(localName = "getAllSales", targetNamespace = "http://webservice/", className = "webservice.GetAllSales")
+    @ResponseWrapper(localName = "getAllSalesResponse", targetNamespace = "http://webservice/", className = "webservice.GetAllSalesResponse")
+    public List<SalesElement> getAllSales();
+
+    /**
+     * 
+     * @param car
+     * @param merchant
+     * @param customer
+     * @return
+     *     returns webservice.SalesElement
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "newSaleAndUpdateStore", targetNamespace = "http://webservice/", className = "webservice.NewSaleAndUpdateStore")
+    @ResponseWrapper(localName = "newSaleAndUpdateStoreResponse", targetNamespace = "http://webservice/", className = "webservice.NewSaleAndUpdateStoreResponse")
+    public SalesElement newSaleAndUpdateStore(
+        @WebParam(name = "customer", targetNamespace = "")
+        CustomerElement customer,
+        @WebParam(name = "merchant", targetNamespace = "")
+        MerchantElement merchant,
+        @WebParam(name = "car", targetNamespace = "")
+        CarElement car)
+        throws Exception_Exception
+    ;
 
 }

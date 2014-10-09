@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservice/}merchantDomain" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservice/}merchantElement" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetAllMerchantsResponse {
 
     @XmlElement(name = "return")
-    protected List<MerchantDomain> _return;
+    protected List<MerchantElement> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetAllMerchantsResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link MerchantDomain }
+     * {@link MerchantElement }
      * 
      * 
      */
-    public List<MerchantDomain> getReturn() {
+    public List<MerchantElement> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<MerchantDomain>();
+            _return = new ArrayList<MerchantElement>();
         }
         return this._return;
     }

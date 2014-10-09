@@ -9,19 +9,19 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for salesDomain complex type.
+ * <p>Java class for salesElement complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="salesDomain">
+ * &lt;complexType name="salesElement">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="car" type="{http://webservice/}carDomain" minOccurs="0"/>
- *         &lt;element name="customer" type="{http://webservice/}customerDomain" minOccurs="0"/>
+ *         &lt;element name="car" type="{http://webservice/}carElement" minOccurs="0"/>
+ *         &lt;element name="customer" type="{http://webservice/}customerElement" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="merchant" type="{http://webservice/}merchantDomain" minOccurs="0"/>
+ *         &lt;element name="merchant" type="{http://webservice/}merchantElement" minOccurs="0"/>
  *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="saleDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *       &lt;/sequence>
@@ -33,7 +33,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "salesDomain", propOrder = {
+@XmlType(name = "salesElement", propOrder = {
     "car",
     "customer",
     "id",
@@ -41,12 +41,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "price",
     "saleDate"
 })
-public class SalesDomain {
+public class SalesElement {
 
-    protected CarDomain car;
-    protected CustomerDomain customer;
+    protected CarElement car;
+    protected CustomerElement customer;
     protected int id;
-    protected MerchantDomain merchant;
+    protected MerchantElement merchant;
     protected float price;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar saleDate;
@@ -56,10 +56,10 @@ public class SalesDomain {
      * 
      * @return
      *     possible object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public CarDomain getCar() {
+    public CarElement getCar() {
         return car;
     }
 
@@ -68,10 +68,10 @@ public class SalesDomain {
      * 
      * @param value
      *     allowed object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public void setCar(CarDomain value) {
+    public void setCar(CarElement value) {
         this.car = value;
     }
 
@@ -80,10 +80,10 @@ public class SalesDomain {
      * 
      * @return
      *     possible object is
-     *     {@link CustomerDomain }
+     *     {@link CustomerElement }
      *     
      */
-    public CustomerDomain getCustomer() {
+    public CustomerElement getCustomer() {
         return customer;
     }
 
@@ -92,10 +92,10 @@ public class SalesDomain {
      * 
      * @param value
      *     allowed object is
-     *     {@link CustomerDomain }
+     *     {@link CustomerElement }
      *     
      */
-    public void setCustomer(CustomerDomain value) {
+    public void setCustomer(CustomerElement value) {
         this.customer = value;
     }
 
@@ -120,10 +120,10 @@ public class SalesDomain {
      * 
      * @return
      *     possible object is
-     *     {@link MerchantDomain }
+     *     {@link MerchantElement }
      *     
      */
-    public MerchantDomain getMerchant() {
+    public MerchantElement getMerchant() {
         return merchant;
     }
 
@@ -132,10 +132,10 @@ public class SalesDomain {
      * 
      * @param value
      *     allowed object is
-     *     {@link MerchantDomain }
+     *     {@link MerchantElement }
      *     
      */
-    public void setMerchant(MerchantDomain value) {
+    public void setMerchant(MerchantElement value) {
         this.merchant = value;
     }
 

@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="customer" type="{http://webservice/}customerDomain" minOccurs="0"/>
- *         &lt;element name="merchant" type="{http://webservice/}merchantDomain" minOccurs="0"/>
- *         &lt;element name="car" type="{http://webservice/}carDomain" minOccurs="0"/>
+ *         &lt;element name="customer" type="{http://webservice/}customerElement" minOccurs="0"/>
+ *         &lt;element name="merchant" type="{http://webservice/}merchantElement" minOccurs="0"/>
+ *         &lt;element name="car" type="{http://webservice/}carElement" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,19 +35,19 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class NewSaleAndUpdateStore {
 
-    protected CustomerDomain customer;
-    protected MerchantDomain merchant;
-    protected CarDomain car;
+    protected CustomerElement customer;
+    protected MerchantElement merchant;
+    protected CarElement car;
 
     /**
      * Gets the value of the customer property.
      * 
      * @return
      *     possible object is
-     *     {@link CustomerDomain }
+     *     {@link CustomerElement }
      *     
      */
-    public CustomerDomain getCustomer() {
+    public CustomerElement getCustomer() {
         return customer;
     }
 
@@ -56,10 +56,10 @@ public class NewSaleAndUpdateStore {
      * 
      * @param value
      *     allowed object is
-     *     {@link CustomerDomain }
+     *     {@link CustomerElement }
      *     
      */
-    public void setCustomer(CustomerDomain value) {
+    public void setCustomer(CustomerElement value) {
         this.customer = value;
     }
 
@@ -68,10 +68,10 @@ public class NewSaleAndUpdateStore {
      * 
      * @return
      *     possible object is
-     *     {@link MerchantDomain }
+     *     {@link MerchantElement }
      *     
      */
-    public MerchantDomain getMerchant() {
+    public MerchantElement getMerchant() {
         return merchant;
     }
 
@@ -80,10 +80,10 @@ public class NewSaleAndUpdateStore {
      * 
      * @param value
      *     allowed object is
-     *     {@link MerchantDomain }
+     *     {@link MerchantElement }
      *     
      */
-    public void setMerchant(MerchantDomain value) {
+    public void setMerchant(MerchantElement value) {
         this.merchant = value;
     }
 
@@ -92,10 +92,10 @@ public class NewSaleAndUpdateStore {
      * 
      * @return
      *     possible object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public CarDomain getCar() {
+    public CarElement getCar() {
         return car;
     }
 
@@ -104,10 +104,10 @@ public class NewSaleAndUpdateStore {
      * 
      * @param value
      *     allowed object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public void setCar(CarDomain value) {
+    public void setCar(CarElement value) {
         this.car = value;
     }
 
