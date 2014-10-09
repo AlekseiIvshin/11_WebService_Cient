@@ -12,6 +12,12 @@ import org.rendersnake.Renderable;
 
 import webservice.StoreElement;
 
+/**
+ * Create store table report.
+ * 
+ * @author Aleksei_Ivshin
+ *
+ */
 public class StoreTableReport implements Renderable {
 
 	private List<StoreElement> stores;
@@ -26,6 +32,13 @@ public class StoreTableReport implements Renderable {
 		writeView(view);
 	}
 
+	/**
+	 * Write rendered view.
+	 * 
+	 * @param html
+	 *            rendered view
+	 * @throws IOException
+	 */
 	private void writeView(HtmlCanvas html) throws IOException {
 
 		String text = html.toHtml();
@@ -39,6 +52,14 @@ public class StoreTableReport implements Renderable {
 		}
 	}
 
+	/**
+	 * Render HTML view.
+	 * 
+	 * @param html
+	 *            starting HTML
+	 * @return result report view
+	 * @throws IOException
+	 */
 	private HtmlCanvas createView(HtmlCanvas html) throws IOException {
 		html.html().head().meta(charset("utf-8"))._head().body().h1()
 				.content("Store report").table().tr().th().content("Store ID")

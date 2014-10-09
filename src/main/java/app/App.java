@@ -19,10 +19,10 @@ public class App {
 
 	static final Logger logger = LoggerFactory.getLogger(App.class);
 
-	Client client = new SimpleClient();
-	ReportFacade reportFacade = new ReportsHTML(new File("bin//htmlreports"));
+	private final Client client = new SimpleClient();
+	private final ReportFacade reportFacade = new ReportsHTML(new File("bin//htmlreports"));
 	
-	public static void main(String[] args){
+	public static void main(String[] args){		
 		App app = new App();
 		try {
 			app.createReports();
@@ -30,6 +30,7 @@ public class App {
 			logger.error("Report exception", e);
 		}
 	}
+	
 
 	public void createReports() throws Exception {
 		setSaleReport();
