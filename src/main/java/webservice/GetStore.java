@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="car" type="{http://webservice/}carDomain" minOccurs="0"/>
+ *         &lt;element name="car" type="{http://webservice/}carElement" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetStore {
 
-    protected CarDomain car;
+    protected CarElement car;
 
     /**
      * Gets the value of the car property.
      * 
      * @return
      *     possible object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public CarDomain getCar() {
+    public CarElement getCar() {
         return car;
     }
 
@@ -50,10 +50,10 @@ public class GetStore {
      * 
      * @param value
      *     allowed object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public void setCar(CarDomain value) {
+    public void setCar(CarElement value) {
         this.car = value;
     }
 

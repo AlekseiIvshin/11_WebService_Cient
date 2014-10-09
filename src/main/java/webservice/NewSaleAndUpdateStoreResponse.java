@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservice/}salesDomain" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservice/}salesElement" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class NewSaleAndUpdateStoreResponse {
 
     @XmlElement(name = "return")
-    protected SalesDomain _return;
+    protected SalesElement _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link SalesDomain }
+     *     {@link SalesElement }
      *     
      */
-    public SalesDomain getReturn() {
+    public SalesElement getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class NewSaleAndUpdateStoreResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link SalesDomain }
+     *     {@link SalesElement }
      *     
      */
-    public void setReturn(SalesDomain value) {
+    public void setReturn(SalesElement value) {
         this._return = value;
     }
 

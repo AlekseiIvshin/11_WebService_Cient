@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservice/}carDomain" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservice/}carElement" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class FindOneCarResponse {
 
     @XmlElement(name = "return")
-    protected CarDomain _return;
+    protected CarElement _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public CarDomain getReturn() {
+    public CarElement getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class FindOneCarResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link CarDomain }
+     *     {@link CarElement }
      *     
      */
-    public void setReturn(CarDomain value) {
+    public void setReturn(CarElement value) {
         this._return = value;
     }
 

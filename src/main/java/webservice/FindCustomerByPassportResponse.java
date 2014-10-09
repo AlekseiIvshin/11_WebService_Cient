@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://webservice/}customerDomain" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://webservice/}customerElement" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class FindCustomerByPassportResponse {
 
     @XmlElement(name = "return")
-    protected CustomerDomain _return;
+    protected CustomerElement _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link CustomerDomain }
+     *     {@link CustomerElement }
      *     
      */
-    public CustomerDomain getReturn() {
+    public CustomerElement getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class FindCustomerByPassportResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link CustomerDomain }
+     *     {@link CustomerElement }
      *     
      */
-    public void setReturn(CustomerDomain value) {
+    public void setReturn(CustomerElement value) {
         this._return = value;
     }
 
