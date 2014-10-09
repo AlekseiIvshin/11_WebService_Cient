@@ -15,8 +15,17 @@ import org.rendersnake.Renderable;
 
 import webservice.SalesElement;
 
+/**
+ * Create sales table report.
+ * 
+ * @author Aleksei_Ivshin
+ *
+ */
 public class SalesTableReport implements Renderable {
 
+	/**
+	 * Sales data.
+	 */
 	private List<SalesElement> sales;
 
 	public SalesTableReport(List<SalesElement> sales) {
@@ -29,6 +38,13 @@ public class SalesTableReport implements Renderable {
 		writeView(view);
 	}
 
+	/**
+	 * Write rendered view.
+	 * 
+	 * @param html
+	 *            rendered view
+	 * @throws IOException
+	 */
 	private void writeView(HtmlCanvas html) throws IOException {
 
 		String text = html.toHtml();
@@ -42,6 +58,14 @@ public class SalesTableReport implements Renderable {
 		}
 	}
 
+	/**
+	 * Render HTML view.
+	 * 
+	 * @param html
+	 *            starting HTML
+	 * @return result report view
+	 * @throws IOException
+	 */
 	private HtmlCanvas createView(HtmlCanvas html) throws IOException {
 		html.html().head().meta(charset("utf-8"))._head().body().h1()
 				.content("Sales report").table().tr().th().content("Sale ID")

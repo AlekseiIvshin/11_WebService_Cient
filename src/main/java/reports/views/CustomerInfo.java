@@ -15,22 +15,44 @@ import org.slf4j.LoggerFactory;
 
 import webservice.CustomerElement;
 
+/**
+ * Create customer info view.
+ * 
+ * @author Aleksei_Ivshin
+ *
+ */
 public class CustomerInfo implements Renderable {
 	static final Logger logger = LoggerFactory.getLogger(CustomerInfo.class);
 
-	private CustomerElement customerData;
+	/**
+	 * Customer data.
+	 */
+	private final CustomerElement customerData;
 
 	public CustomerInfo(CustomerElement customerData) {
 		this.customerData = customerData;
 	}
 
+	/**
+	 * Render HTML report.
+	 */
 	@Override
 	public void renderOn(HtmlCanvas html) throws IOException {
+		if (html.getOutputWriter() == null) {
+			throw new IOException("Cannot find writer.");
+		}
 		HtmlCanvas view = createView(html);
 		writeView(view);
 	}
-	
-	private void writeView(HtmlCanvas html) throws IOException{
+
+	/**
+	 * Write rendered view.
+	 * 
+	 * @param html
+	 *            rendered view
+	 * @throws IOException
+	 */
+	private void writeView(HtmlCanvas html) throws IOException {
 
 		String text = html.toHtml();
 		int lastPos = text.lastIndexOf("\n");
@@ -43,6 +65,14 @@ public class CustomerInfo implements Renderable {
 		}
 	}
 
+	/**
+	 * Render HTML view.
+	 * 
+	 * @param html
+	 *            starting HTML
+	 * @return result report view
+	 * @throws IOException
+	 */
 	private HtmlCanvas createView(HtmlCanvas html) throws IOException {
 		html.html().head().meta(charset("utf-8"))._head().body().h1()
 				.content("Customer info");
