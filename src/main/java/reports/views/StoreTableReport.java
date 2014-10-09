@@ -8,11 +8,11 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import org.rendersnake.HtmlCanvas;
-import org.rendersnake.internal.CharactersWriteable;
+import org.rendersnake.Renderable;
 
 import webservice.StoreElement;
 
-public class StoreTableReport implements ReportView {
+public class StoreTableReport implements Renderable {
 
 	private List<StoreElement> stores;
 
@@ -22,6 +22,24 @@ public class StoreTableReport implements ReportView {
 
 	@Override
 	public void renderOn(HtmlCanvas html) throws IOException {
+		HtmlCanvas view = createView(html);
+		writeView(view);
+	}
+
+	private void writeView(HtmlCanvas html) throws IOException {
+
+		String text = html.toHtml();
+		int lastPos = text.lastIndexOf("\n");
+		Writer writer = null;
+		try {
+			writer = html.getOutputWriter();
+			writer.write(html.toHtml(), 0, lastPos);
+		} finally {
+			writer.close();
+		}
+	}
+
+	private HtmlCanvas createView(HtmlCanvas html) throws IOException {
 		html.html().head().meta(charset("utf-8"))._head().body().h1()
 				.content("Store report").table().tr().th().content("Store ID")
 				.th().content("Car").th().content("Price").th()
@@ -41,12 +59,6 @@ public class StoreTableReport implements ReportView {
 		}
 
 		html._table()._body()._html().toHtml();
-		Writer writer = null;
-		try {
-			writer = html.getOutputWriter();
-			writer.write(html.toHtml());
-		} finally {
-			writer.close();
-		}
+		return html;
 	}
 }

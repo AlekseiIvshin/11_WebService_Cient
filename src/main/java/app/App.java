@@ -3,27 +3,38 @@ package app;
 import java.io.File;
 import java.io.IOException;
 
+import org.rendersnake.Renderable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import client.Client;
-import client.SimpleClient;
 import reports.ReportFacade;
-import reports.Reports;
-import reports.views.ReportView;
+import reports.html.ReportsHTML;
+import reports.views.CustomerInfo;
 import reports.views.SalesTableReport;
 import reports.views.StoreTableReport;
+import client.Client;
+import client.SimpleClient;
 
 public class App {
 
-	static final Logger logger = LoggerFactory.getLogger(Reports.class);
+	static final Logger logger = LoggerFactory.getLogger(App.class);
 
 	Client client = new SimpleClient();
-	ReportFacade reportFacade = new Reports(new File("bin//htmlreports"));
+	ReportFacade reportFacade = new ReportsHTML(new File("bin//htmlreports"));
+	
+	public static void main(String[] args){
+		App app = new App();
+		try {
+			app.createReports();
+		} catch (Exception e) {
+			logger.error("Report exception", e);
+		}
+	}
 
 	public void createReports() throws Exception {
 		setSaleReport();
 		setStoreReport();
+		setCustomerInfoReport("9100","100101");
 		try {
 			reportFacade.createReport();
 		} catch (IOException e) {
@@ -33,15 +44,20 @@ public class App {
 	}
 
 	private void setSaleReport() throws Exception {
-		ReportView saleReport = new SalesTableReport(client.getAllSales());
+		Renderable saleReport = new SalesTableReport(client.getAllSales());
 
 		reportFacade.addReport("AllSales", saleReport);
 
 	}
 
 	private void setStoreReport() throws Exception {
-		ReportView storeReport = new StoreTableReport(client.getAllStores());
+		Renderable storeReport = new StoreTableReport(client.getAllStores());
 
 		reportFacade.addReport("AllStores", storeReport);
+	}
+	
+	private void setCustomerInfoReport(String passportSeries, String passportNumber){
+		Renderable cusotmerInfo = new CustomerInfo(client.findCustomerByPassport(passportSeries, passportNumber));
+		reportFacade.addReport("customerInfo", cusotmerInfo);
 	}
 }

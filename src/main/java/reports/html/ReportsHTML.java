@@ -1,4 +1,4 @@
-package reports;
+package reports.html;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,21 +13,21 @@ import org.rendersnake.Renderable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import reports.views.ReportView;
+import reports.ReportFacade;
 
-public class Reports implements ReportFacade {
+public class ReportsHTML implements ReportFacade {
 	
-	static final Logger logger = LoggerFactory.getLogger(Reports.class);
+	static final Logger logger = LoggerFactory.getLogger(ReportsHTML.class);
 	Map<String, Renderable> reports;
 	final File destDirectory;
 
-	public Reports(File destDirectory) {
+	public ReportsHTML(File destDirectory) {
 		reports = new HashMap<String, Renderable>();
 		this.destDirectory = destDirectory;
 	}
 
 	@Override
-	public void addReport(String name, ReportView report) {
+	public void addReport(String name, Renderable report) {
 		if (reports.containsKey(name)) {
 			reports.remove(name);
 		}
@@ -42,7 +42,7 @@ public class Reports implements ReportFacade {
 	}
 
 	@Override
-	public void createReport() throws IOException {
+	public void createReports() throws IOException {
 		checkDestPath();
 		for (String reportName : reports.keySet()) {
 			createReport(reportName);

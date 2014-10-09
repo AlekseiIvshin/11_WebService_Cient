@@ -10,14 +10,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import javax.enterprise.inject.Model;
-import javax.xml.bind.DatatypeConverter;
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.junit.Test;
 import org.mockito.Mock;
 
-import reports.Reports;
+import reports.html.ReportsHTML;
 import reports.views.SalesTableReport;
 
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
@@ -57,7 +53,7 @@ public class ReportsTest {
 		cal.setTime(new Date());
 		
 		when(salesMock.getSaleDate()).thenReturn(XMLGregorianCalendarImpl.createDate(1900, 1, 1, 1));
-		Reports reports = new Reports(new File("reports"));
+		ReportsHTML reports = new ReportsHTML(new File("reports"));
 		List<SalesElement> sales  = Arrays.asList(salesMock, salesMock, salesMock );
 		reports.addReport("sale", new SalesTableReport(sales));
 		try {

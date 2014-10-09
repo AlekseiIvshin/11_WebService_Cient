@@ -4,12 +4,18 @@ import java.util.List;
 
 import webservice.CarElement;
 import webservice.CustomerElement;
-import webservice.Exception_Exception;
 import webservice.MerchantElement;
 import webservice.SalesElement;
 import webservice.StoreElement;
 
+/**
+ * Client for service Autoshow.
+ * 
+ * @author Aleksei_Ivshin
+ *
+ */
 public interface Client {
+	
 	/**
 	 * Get all mark names.
 	 * 
@@ -102,7 +108,7 @@ public interface Client {
 	public StoreElement getStoreByCar(CarElement car);
 
 	/**
-	 * Find cusomer by passport.
+	 * Find customer by passport.
 	 * 
 	 * @param series
 	 *            passport series
